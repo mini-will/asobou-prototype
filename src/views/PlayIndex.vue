@@ -3,6 +3,10 @@
     <v-container>
       <br />
       <h2>あそびをえらんでね</h2>
+
+      <!-- <p>{{ this.$store.getters.doneTodos }}</p>
+      <p>{{ this.$store.getters.getTodoById(2) }}</p> -->
+
       <div v-if="!loading">
         <v-row>
           <v-col

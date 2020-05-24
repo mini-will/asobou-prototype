@@ -5,12 +5,23 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    todos: [{
+        id: 1,
+        text: '...',
+        done: true
+      },
+      {
+        id: 2,
+        text: '...',
+        done: false
+      }
+    ],
     playInfo: [{
       place: null,
       aSureThing: null,
     }],
     count: 0,
-    items: ["Foo", "Bar", "Fizz", "Buzz"],
+    items: ["一人", "二人以上"],
     playPlaces: ["そとであそぶ", "なかであそぶ"],
     playCards: [{
         "id": 1,
@@ -148,6 +159,14 @@ export default new Vuex.Store({
         "description": ""
       }
     ]
+  },
+  getters: {
+    doneTodos: state => {
+      return state.todos.filter(todo => todo.done)
+    },
+    getTodoById: (state) => (id) => {
+      return state.todos.find(todo => todo.id === id)
+    }
   },
   mutations: {
     increment: function (state) {

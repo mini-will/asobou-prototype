@@ -26,12 +26,13 @@
         </v-btn>
       </div>
 
-      <v-row>
+      <!-- vuexの検証 -->
+      <!-- <v-row>
         <v-col>
           <v-btn @click="increment">CountUp</v-btn>
           <h3>Count: {{ count }}</h3>
         </v-col>
-      </v-row>
+      </v-row> -->
     </div>
   </v-container>
 </template>

@@ -4,8 +4,7 @@
       <br />
       <h2>あそびをえらんでね</h2>
 
-      <!-- <p>{{ this.$store.getters.doneTodos }}</p>
-      <p>{{ this.$store.getters.getTodoById(2) }}</p> -->
+      <p>{{ getPlayCardsByInOut("in") }}</p>
 
       <div v-if="!loading">
         <v-row>
@@ -24,10 +23,7 @@
                   gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                   height="200px"
                 >
-                  <v-card-title
-                    v-text="playcard.display_name"
-                    class="headline font-weight-bold"
-                  ></v-card-title>
+                  <v-card-title v-text="playcard.display_name" class="headline font-weight-bold"></v-card-title>
                 </v-img>
 
                 <v-card-text>
@@ -52,16 +48,19 @@
 </template>
 
 <script>
+import { mapState, mapGetters } from "vuex";
+
 export default {
   data() {
     return {
-      loading: false,
+      loading: false
     };
   },
   computed: {
-    playCards: function() {
-      return this.$store.state.playCards;
-    },
-  },
+    ...mapState(["playCards"]),
+    ...mapGetters([
+      "getPlayCardsByInOut" // => `this.isPositive` が `this.$store.getters.isPositive` にマッピングされる
+    ])
+  }
 };
 </script>

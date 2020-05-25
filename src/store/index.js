@@ -166,6 +166,9 @@ export default new Vuex.Store({
     },
     getTodoById: (state) => (id) => {
       return state.todos.find(todo => todo.id === id)
+    },
+    getPlayCardsByInOut: (state) => (inout) => {
+      return state.playCards.filter(playCards => playCards.inout === inout)
     }
   },
   mutations: {

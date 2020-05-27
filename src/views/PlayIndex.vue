@@ -20,6 +20,13 @@
             >
               <v-card-title v-text="this.temp1.display_name" class="headline font-weight-bold"></v-card-title>
             </v-img>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn icon>
+                <v-icon>mdi-heart</v-icon>
+                <v-icon @click="setPlaydata1">mdi-cloud-upload</v-icon>
+              </v-btn>
+            </v-card-actions>
           </v-card>
         </v-col>
       </v-row>
@@ -36,6 +43,13 @@
             >
               <v-card-title v-text="this.temp2.display_name" class="headline font-weight-bold"></v-card-title>
             </v-img>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn icon>
+                <v-icon>mdi-heart</v-icon>
+                <v-icon @click="setPlaydata2">mdi-cloud-upload</v-icon>
+              </v-btn>
+            </v-card-actions>
           </v-card>
         </v-col>
       </v-row>
@@ -111,6 +125,12 @@ export default {
   methods: {
     getRandom(ary) {
       return ary[Math.floor(Math.random() * ary.length)];
+    },
+    setPlaydata1() {
+      this.temp1 = this.getRandom(this.getPlayCardsByInOut("in"));
+    },
+    setPlaydata2() {
+      this.temp2 = this.getRandom(this.getPlayCardsByInOut("out"));
     }
   }
 };

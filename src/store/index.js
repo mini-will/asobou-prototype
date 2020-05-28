@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    message: "Hello",
     todos: [{
         id: 1,
         text: '...',
@@ -219,15 +220,28 @@ export default new Vuex.Store({
     // getPlayCardsByRandom: (state, getters) => num => {
     //   getters.aaa + num
     // }
+    message(state) {
+      return state.message
+    }
   },
   mutations: {
     increment: function (state) {
       state.count++;
+    },
+    setMessage(state, payload) {
+      state.message = payload.message
     }
   },
   actions: {
     incrementOne: function (context) {
       context.commit('increment');
+    },
+    doUpdate({
+      commit
+    }, message) {
+      commit('setMessage', {
+        message
+      })
     }
   },
   modules: {}

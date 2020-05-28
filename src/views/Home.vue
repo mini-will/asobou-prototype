@@ -8,14 +8,7 @@
 
     <v-row align="center">
       <v-col cols="12" sm="6">
-        <v-select
-          v-model="playInfo.place"
-          :items="playPlaces"
-          filled
-          chips
-          label="どこであそぶ"
-          multiple
-        ></v-select>
+        <v-select v-model="playInfo.place" :items="playPlaces" filled chips label="どこであそぶ" multiple></v-select>
       </v-col>
     </v-row>
 
@@ -26,13 +19,22 @@
         </v-btn>
       </div>
 
+      <v-row>
+        <v-col>
+          <v-form ref="form">
+            <v-text-field v-model="message" label="message area"></v-text-field>
+          </v-form>
+          <v-text>{{ this.message }}</v-text>
+        </v-col>
+      </v-row>
+
       <!-- vuexの検証 -->
       <!-- <v-row>
         <v-col>
           <v-btn @click="increment">CountUp</v-btn>
           <h3>Count: {{ count }}</h3>
         </v-col>
-      </v-row> -->
+      </v-row>-->
     </div>
   </v-container>
 </template>
@@ -40,7 +42,7 @@
 <script>
 export default {
   data: () => ({
-    valuePlayPlace: 0,
+    valuePlayPlace: 0
     // items: ["Foo", "Bar", "Fizz", "Buzz"],
     // playPlaces: ["そとであそぶ", "なかであそぶ"],
   }),
@@ -50,9 +52,17 @@ export default {
   methods: {
     increment: function() {
       this.$store.dispatch("incrementOne");
-    },
+    }
   },
   computed: {
+    message: {
+      get() {
+        return this.$store.getters.message;
+      },
+      set(value) {
+        this.$store.dispatch("doUpdate", value);
+      }
+    },
     count: function() {
       return this.$store.state.count;
     },
@@ -68,8 +78,8 @@ export default {
       },
       set(value) {
         this.$store.commit("updateplayInfo", value);
-      },
-    },
-  },
+      }
+    }
+  }
 };
 </script>

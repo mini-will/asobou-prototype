@@ -1,8 +1,10 @@
 <template>
   <v-container fluid>
+    <!-- TODO:Using the input Event with Vuex
+    https://vue-select.org/guide/vuex.html-->
     <v-row align="center">
       <v-col class="d-flex" cols="12" sm="6">
-        <v-select :items="items" filled label="なんにんであそぶ"></v-select>
+        <v-select :items="message" filled label="なんにんであそぶ"></v-select>
       </v-col>
     </v-row>
 
@@ -19,14 +21,14 @@
         </v-btn>
       </div>
 
-      <v-row>
+      <!-- <v-row>
         <v-col>
           <v-form ref="form">
             <v-text-field v-model="message" label="message area"></v-text-field>
           </v-form>
           <v-text>{{ this.message }}</v-text>
         </v-col>
-      </v-row>
+      </v-row>-->
 
       <!-- vuexの検証 -->
       <!-- <v-row>

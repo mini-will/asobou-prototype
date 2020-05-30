@@ -23,7 +23,7 @@
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn icon>
-                <v-icon>mdi-heart</v-icon>
+                <!-- <v-icon>mdi-heart</v-icon> -->
                 <v-icon @click="setPlaydata1">mdi-cloud-upload</v-icon>
               </v-btn>
             </v-card-actions>
@@ -46,7 +46,7 @@
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn icon>
-                <v-icon>mdi-heart</v-icon>
+                <!-- <v-icon>mdi-heart</v-icon> -->
                 <v-icon @click="setPlaydata2">mdi-cloud-upload</v-icon>
               </v-btn>
             </v-card-actions>

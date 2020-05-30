@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    message: "Hello",
+    message: ["一人", "二人以上", "test"],
     todos: [{
         id: 1,
         text: '...',

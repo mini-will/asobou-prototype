@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-app-bar color="primary" dark app>
-      <v-toolbar-title>Asobou</v-toolbar-title>
+      <v-toolbar-title style="cursor: pointer" @click="$router.push('/')">Asobou</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn pr-4 color="accent">
         <router-link to="/">Home</router-link>
@@ -23,6 +23,6 @@ export default {
 
   data: () => ({
     //
-  }),
+  })
 };
 </script>

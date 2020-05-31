@@ -11,7 +11,7 @@
       <h3>おうちであそぶ</h3>
       <v-row>
         <v-col>
-          <v-card>
+          <v-card :to="{ name: 'PlayInfo', params: { id:this.temp1.id } }">
             <v-img
               :src="this.temp1.image_url"
               class="white--text align-end"
@@ -34,7 +34,7 @@
       <h3>そとであそぶ</h3>
       <v-row>
         <v-col>
-          <v-card>
+          <v-card :to="{ name: 'PlayInfo', params: { id:this.temp2.id } }">
             <v-img
               :src="this.temp2.image_url"
               class="white--text align-end"

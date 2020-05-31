@@ -216,6 +216,9 @@ export default new Vuex.Store({
     getPlayCardsByInOut: (state) => (inout) => {
       return state.playCards.filter(playCards => playCards.inout === inout)
     },
+    getPlayCardsById: (state) => (id) => {
+      return state.playCards.filter(playCards => playCards.id === id)
+    },
     // getters内でgetterを参照する
     // getPlayCardsByRandom: (state, getters) => num => {
     //   getters.aaa + num

@@ -11,15 +11,17 @@
       <h3>おうちであそぶ</h3>
       <v-row>
         <v-col>
-          <v-card :to="{ name: 'PlayInfo', params: { id:this.temp1.id } }">
-            <v-img
-              :src="this.temp1.image_url"
-              class="white--text align-end"
-              gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-              height="200px"
-            >
-              <v-card-title v-text="this.temp1.display_name" class="headline font-weight-bold"></v-card-title>
-            </v-img>
+          <v-card>
+            <router-link :to="{ name: 'PlayInfo', params: { id:this.temp1.id } }">
+              <v-img
+                :src="this.temp1.image_url"
+                class="white--text align-end"
+                gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                height="200px"
+              >
+                <v-card-title v-text="this.temp1.display_name" class="headline font-weight-bold"></v-card-title>
+              </v-img>
+            </router-link>
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn icon>
@@ -34,15 +36,17 @@
       <h3>そとであそぶ</h3>
       <v-row>
         <v-col>
-          <v-card :to="{ name: 'PlayInfo', params: { id:this.temp2.id } }">
-            <v-img
-              :src="this.temp2.image_url"
-              class="white--text align-end"
-              gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-              height="200px"
-            >
-              <v-card-title v-text="this.temp2.display_name" class="headline font-weight-bold"></v-card-title>
-            </v-img>
+          <v-card>
+            <router-link :to="{ name: 'PlayInfo', params: { id:this.temp2.id } }">
+              <v-img
+                :src="this.temp2.image_url"
+                class="white--text align-end"
+                gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                height="200px"
+              >
+                <v-card-title v-text="this.temp2.display_name" class="headline font-weight-bold"></v-card-title>
+              </v-img>
+            </router-link>
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn icon>

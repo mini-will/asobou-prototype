@@ -3,13 +3,14 @@
     <v-container>
       <v-row>
         <v-col>
-          <h1>play info</h1>
+          <h1 class="my-4">{{ temp[0].display_name }}</h1>
 
           <!-- <p>{{ this.getPlayCardsById(Number($route.params.id)) }}</p> -->
+          <!-- <p>{{ temp[0].kanji_name }}</p> -->
+          <!-- <p>{{ $route.params.id }}</p> -->
 
-          <p>{{ $route.params.id }}</p>
-          <p>{{ temp[0].kanji_name }}</p>
-          <p>{{ temp[0].display_name }}</p>
+          <youtube :video-id="temp[0].videoId" />
+
           <p>{{ temp[0].description }}</p>
         </v-col>
       </v-row>
@@ -19,12 +20,17 @@
 
 <script>
 import { mapState, mapGetters } from "vuex";
+import Vue from "vue";
+import VueYoutube from "vue-youtube";
+
+Vue.use(VueYoutube);
 
 export default {
   data() {
     return {
       loading: false,
-      temp: []
+      temp: [],
+      videoId: "zaoo8zWT8ek",
     };
   },
   created: function() {
@@ -34,8 +40,15 @@ export default {
   computed: {
     ...mapState(["playCards"]),
     ...mapGetters([
-      "getPlayCardsById" // => `this.isPositive` が `this.$store.getters.isPositive` にマッピングされる
-    ])
-  }
+      "getPlayCardsById", // => `this.isPositive` が `this.$store.getters.isPositive` にマッピングされる
+    ]),
+  },
 };
 </script>
+
+<style lang="css">
+iframe {
+  width: 100%;
+  /* max-width: 400px; Also helpful. Optional. */
+}
+</style>

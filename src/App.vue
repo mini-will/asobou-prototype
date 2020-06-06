@@ -3,10 +3,10 @@
     <v-app-bar color="primary" dark app>
       <v-toolbar-title style="cursor: pointer" @click="$router.push('/')">Asobou</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn pr-4 color="accent">
+      <v-btn pr-4 color="accent" small class="mr-4">
         <router-link to="/">Home</router-link>
       </v-btn>
-      <v-btn color="accent">
+      <v-btn color="accent" small>
         <router-link to="/playindex">PlayIndex</router-link>
       </v-btn>
     </v-app-bar>

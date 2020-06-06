@@ -3,6 +3,8 @@
     <v-container>
       <v-row>
         <v-col>
+          <router-link :to="{ name: 'PlayIndex' }">あそび一覧へ戻る</router-link>
+
           <h1 class="my-4">{{ temp[0].display_name }}</h1>
 
           <!-- <p>{{ this.getPlayCardsById(Number($route.params.id)) }}</p> -->
@@ -30,7 +32,7 @@ export default {
     return {
       loading: false,
       temp: [],
-      videoId: "zaoo8zWT8ek",
+      videoId: "zaoo8zWT8ek"
     };
   },
   created: function() {
@@ -40,9 +42,9 @@ export default {
   computed: {
     ...mapState(["playCards"]),
     ...mapGetters([
-      "getPlayCardsById", // => `this.isPositive` が `this.$store.getters.isPositive` にマッピングされる
-    ]),
-  },
+      "getPlayCardsById" // => `this.isPositive` が `this.$store.getters.isPositive` にマッピングされる
+    ])
+  }
 };
 </script>
 

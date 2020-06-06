@@ -25,8 +25,8 @@
 
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn icon v-on:click="color_switch(index)">
-              <v-icon v-if="isActive[index] === false">mdi-heart</v-icon>
+            <v-btn icon v-on:click="color_switch">
+              <v-icon v-if="isActiveIn === false">mdi-heart</v-icon>
               <v-icon v-else color="pink">mdi-heart</v-icon>
             </v-btn>
             <v-btn @click.stop="dialogIn = true">ほかの</v-btn>
@@ -35,35 +35,37 @@
       </v-card>
 
       <!-- ■ダイアログ -->
-      <v-dialog v-model="dialogIn" max-width="400" light>
-        <v-row>
-          <v-col
-            v-for="(playcard) in temp3"
-            :key="playcard.id"
-            cols="6"
-            sm="6"
-            class="d-flex justify-center"
-          >
-            <v-card>
-              <v-responsive :aspect-ratio="16 / 9">
-                <v-img
-                  :src="playcard.image_url"
-                  class="white--text align-end"
-                  gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                  height="200px"
-                  @click="switchMainPlayIn(playcard.id)"
-                >
-                  <v-card-title v-text="playcard.display_name" class="headline font-weight-bold"></v-card-title>
-                </v-img>
-              </v-responsive>
-            </v-card>
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col cols="12" sm="6" class="d-flex justify-center">
-            <v-btn @click="setPlaydata3(index)" justify="center">ほかの</v-btn>
-          </v-col>
-        </v-row>
+      <v-dialog v-model="dialogIn" light overlay-opacity="0.7">
+        <div style="background-color: lightgray">
+          <v-row>
+            <v-col
+              v-for="(playcard,index) in temp3"
+              :key="index + playcard.id"
+              cols="6"
+              sm="6"
+              class="d-flex justify-center"
+            >
+              <v-card>
+                <v-responsive :aspect-ratio="16 / 9">
+                  <v-img
+                    :src="playcard.image_url"
+                    class="white--text align-end"
+                    gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                    height="200px"
+                    @click="switchMainPlayIn(playcard.id)"
+                  >
+                    <v-card-title v-text="playcard.display_name" class="headline font-weight-bold"></v-card-title>
+                  </v-img>
+                </v-responsive>
+              </v-card>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col cols="12" sm="12" class="d-flex justify-center">
+              <v-btn @click="setPlaydata3(index)" justify="center">ほかの</v-btn>
+            </v-col>
+          </v-row>
+        </div>
       </v-dialog>
 
       <h3>そとであそぶ</h3>
@@ -82,78 +84,48 @@
 
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn icon v-on:click="color_switch(index)">
+            <!-- <v-btn icon v-on:click="color_switch(index)">
               <v-icon v-if="isActive[index] === false">mdi-heart</v-icon>
               <v-icon v-else color="pink">mdi-heart</v-icon>
-            </v-btn>
+            </v-btn>-->
             <v-btn @click.stop="dialogOut = true">ほかの</v-btn>
           </v-card-actions>
         </v-responsive>
       </v-card>
 
-      <v-dialog v-model="dialogOut" max-width="400">
-        <v-row>
-          <v-col
-            v-for="(playcard) in temp4"
-            :key="playcard.id"
-            cols="6"
-            sm="6"
-            class="d-flex justify-center"
-          >
-            <v-card>
-              <v-responsive :aspect-ratio="16 / 9">
-                <v-img
-                  :src="playcard.image_url"
-                  class="white--text align-end"
-                  gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                  height="200px"
-                  @click="switchMainPlayOut(playcard.id)"
-                >
-                  <v-card-title v-text="playcard.display_name" class="headline font-weight-bold"></v-card-title>
-                </v-img>
-              </v-responsive>
-            </v-card>
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col cols="12" sm="6" class="d-flex justify-center">
-            <v-btn @click="setPlaydata4" justify="center">ほかの</v-btn>
-          </v-col>
-        </v-row>
+      <!-- ■ダイアログ -->
+      <v-dialog v-model="dialogOut" overlay-opacity="0.7">
+        <div style="background-color: lightgray">
+          <v-row>
+            <v-col
+              v-for="(playcard,index) in temp4"
+              :key="index + playcard.id"
+              cols="6"
+              sm="6"
+              class="d-flex justify-center"
+            >
+              <v-card>
+                <v-responsive :aspect-ratio="16 / 9">
+                  <v-img
+                    :src="playcard.image_url"
+                    class="white--text align-end"
+                    gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                    height="200px"
+                    @click="switchMainPlayOut(playcard.id)"
+                  >
+                    <v-card-title v-text="playcard.display_name" class="headline font-weight-bold"></v-card-title>
+                  </v-img>
+                </v-responsive>
+              </v-card>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col cols="12" sm="12" class="d-flex justify-center">
+              <v-btn @click="setPlaydata4" justify="center">ほかの</v-btn>
+            </v-col>
+          </v-row>
+        </div>
       </v-dialog>
-
-      <!-- <v-row>
-        <v-col
-          v-for="(playcard,index) in temp4"
-          :key="playcard.id"
-          cols="6"
-          sm="3"
-          class="d-flex justify-center"
-        >
-          <v-card>
-            <v-responsive :aspect-ratio="16 / 9">
-              <router-link :to="{ name: 'PlayInfo', params: { id:playcard.id } }">
-                <v-img
-                  :src="playcard.image_url"
-                  class="white--text align-end"
-                  gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                  height="200px"
-                >
-                  <v-card-title v-text="playcard.display_name" class="headline font-weight-bold"></v-card-title>
-                </v-img>
-              </router-link>
-
-              <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn icon>
-                  <v-icon>mdi-heart</v-icon>
-                </v-btn>
-                <v-btn @click="setPlaydata4(index)">ほかの</v-btn>
-              </v-card-actions>
-            </v-responsive>
-          </v-card>
-        </v-col>
-      </v-row>-->
 
       <!-- <p>{{ getPlayCardsByInOut("in") }}</p> -->
       <!-- <p>{{ this.temp.image_url }}</p> -->
@@ -175,7 +147,7 @@ export default {
       // temp2: [],
       temp3: [],
       temp4: [],
-      isActive: [],
+      isActiveIn: false,
       dialogIn: false,
       dialogOut: false
     };
@@ -188,10 +160,7 @@ export default {
     this.temp3[1] = this.getRandom(this.getPlayCardsByInOut("in"));
     this.temp3[2] = this.getRandom(this.getPlayCardsByInOut("in"));
     this.temp3[3] = this.getRandom(this.getPlayCardsByInOut("in"));
-    this.isActive[0] = false;
-    this.isActive[1] = false;
-    this.isActive[2] = false;
-    this.isActive[3] = false;
+    this.isActiveIn = false;
 
     this.temp4[0] = this.getRandom(this.getPlayCardsByInOut("out"));
     this.temp4[1] = this.getRandom(this.getPlayCardsByInOut("out"));
@@ -223,8 +192,8 @@ export default {
       this.temp4.splice(2, 1, this.getRandom(this.getPlayCardsByInOut("out")));
       this.temp4.splice(3, 1, this.getRandom(this.getPlayCardsByInOut("out")));
     },
-    color_switch(index) {
-      this.isActive.splice(index, 1, !this.isActive[index]);
+    color_switch() {
+      this.isActiveIn = !this.isActiveIn;
     },
     switchMainPlayIn(playId) {
       this.temp3.splice(0, 1, this.getRandom(this.getPlayCardsById(playId)));

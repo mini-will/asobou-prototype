@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import PlayIndex from '../views/PlayIndex.vue'
 import PlayInfo from '../views/PlayInfo.vue'
+import PlayAllItem from '../views/PlayAllItem.vue'
 
 Vue.use(VueRouter)
 
@@ -20,6 +21,11 @@ const routes = [{
     path: '/playinfo/:id',
     name: 'PlayInfo',
     component: PlayInfo
+  },
+  {
+    path: '/playallitem',
+    name: 'PlayAllItem',
+    component: PlayAllItem
   },
 
 ]

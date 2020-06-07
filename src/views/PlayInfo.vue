@@ -13,6 +13,10 @@
 
           <youtube :video-id="temp[0].videoId" />
 
+          <p class="headline mt-4">どうぐ</p>
+          <p>{{ temp[0].tool_tags }}</p>
+
+          <p class="headline py-1">あそびかた</p>
           <p>{{ temp[0].description }}</p>
         </v-col>
       </v-row>

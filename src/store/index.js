@@ -19,7 +19,7 @@ export default new Vuex.Store({
     ],
     playInfo: [{
       place: null,
-      aSureThing: null,
+      aSureThing: null, // 鉄板遊び
     }],
     count: 0,
     items: ["一人", "二人以上"],

@@ -25,7 +25,7 @@
 
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn icon v-on:click="color_switch">
+            <v-btn icon v-on:click="color_switch(temp3[0].id)">
               <v-icon v-if="isActiveIn === false">mdi-heart</v-icon>
               <v-icon v-else color="pink">mdi-heart</v-icon>
             </v-btn>
@@ -149,7 +149,8 @@ export default {
       temp4: [],
       isActiveIn: false,
       dialogIn: false,
-      dialogOut: false
+      dialogOut: false,
+      playLiked: []
     };
   },
   created: function() {
@@ -192,8 +193,15 @@ export default {
       this.temp4.splice(2, 1, this.getRandom(this.getPlayCardsByInOut("out")));
       this.temp4.splice(3, 1, this.getRandom(this.getPlayCardsByInOut("out")));
     },
-    color_switch() {
+    color_switch(playId) {
       this.isActiveIn = !this.isActiveIn;
+      this.playLiked.splice(0, 1, {
+        id: 1,
+        user: "testUser",
+        playId: playId,
+        liked: this.isActiveIn,
+        display: "show"
+      });
     },
     switchMainPlayIn(playId) {
       this.temp3.splice(0, 1, this.getRandom(this.getPlayCardsById(playId)));

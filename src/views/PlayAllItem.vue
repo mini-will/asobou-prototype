@@ -17,7 +17,6 @@
               class="white--text align-end"
               gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
               height="200px"
-              @click="switchMainPlayIn(playcard.id)"
             >
               <v-card-title v-text="playcard.display_name" class="headline font-weight-bold"></v-card-title>
             </v-img>
